@@ -1,0 +1,40 @@
+<!-- src/app/components/listar-productos/listar-productos.component.html -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE PRODUCTOS</span>
+          <button class="btn btn-primary float-end" routerLink="/crear-producto">NUEVO</button>
+          <div class="table-responsive mt-3">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Ubicación</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos">
+                  <th>{{ producto.nombre }}</th>
+                  <td>{{ producto.categoria }}</td>
+                  <td>{{ producto.ubicacion }}</td>
+                  <td>{{ producto.precio }}</td>
+                  <td>
+
+                    <i class="fa fa-pen-to-square text-primary me-2" (click)="editarProducto(producto.nombre, producto)" aria-hidden="true"></i>
+                    <i class="fa fa-trash text-danger" (click)="eliminarProducto(producto.nombre)" aria-hidden="true"></i>
+                  </td>
+                </tr>
+              </tbody>
+              <a class="bg-primary text-white text-center" href="hola-mundo">ir pagina principal</a>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

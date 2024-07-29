@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row"><!-- Una fila -->
+    <div class="col-lg-6 offset-lg-3"><!-- Para que deje 3 columnas vacías a la izquierda -->
+      <div class="card">
+        <div class="card-body text-center"><!-- Corrección de "cad-body" a "card-body" -->
+          <span class="titulo">CREAR PRODUCTO</span>
+          <!-- Formulario  y enlazado [formGroup]="productForm-->
+          <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()"><!--formulario enlazado -->
+            <div class="mb-3 mt-3">
+             <!--enlazar cada una de las variables formControlName="producto y asi con todos  -->
+              <input type="text" formControlName="producto"
+              class="form-control form-control-lg" placeholder="Producto"><!-- Añadido placeholder para mejor usabilidad -->
+             <!--para que marque con color rojos los errores de validacion -->
+              <!--acepde al formulario para validar los errorees y ademas si eso es eso el touch vuelve verdadero-->
+              <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched"> <!--si esto devuelve verdadero-->
+                 <!-- si es verdadero se muestra esto en caso contrario no muestra nada-->
+                <span>El nombre del producto <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3 mt-3">
+              <input type="text" formControlName="categoria"
+              class="form-control form-control-lg" placeholder="Categoria"><!-- Añadido placeholder para mejor usabilidad -->
+              <!--acepde al formulario para validar los errorees y ademas si eso es eso el touch vuelve verdadero-->
+              <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched"> <!--si esto devuelve verdadero-->
+                <!-- si es verdadero se muestra esto en caso contrario no muestra nada-->
+               <span> La categoria <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+            <div class="mb-3 mt-3">
+              <input type="text" formControlName="ubicacion"
+              class="form-control form-control-lg" placeholder="Ubicacion"><!-- Añadido placeholder para mejor usabilidad -->
+               <!--acepde al formulario para validar los errorees y ademas si eso es eso el touch vuelve verdadero-->
+              <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched"> <!--si esto devuelve verdadero-->
+                <!-- si es verdadero se muestra esto en caso contrario no muestra nada-->
+               <span> La ubicacion <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+            <div class="mb-3 mt-3">
+              <input type="number" formControlName="precio"
+               class="form-control form-control-lg" placeholder="Precio"><!-- Añadido placeholder para mejor usabilidad -->
+               <!--acepde al formulario para validar los errorees y ademas si eso es eso el touch vuelve verdadero-->
+              <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched"> <!--si esto devuelve verdadero-->
+                <!-- si es verdadero se muestra esto en caso contrario no muestra nada-->
+               <span>El precio <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <a href="/" class="btn btn-secondary btn-lg float-start">VOLVER</a>
+              <button type="submit" [disabled]="productoForm.invalid" class="btn btn-primary btn-lg float-end">ACEPTAR</button><!-- Añadido "type="submit" para el botón de aceptación -->
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>
+  <p>&copy; 2024 Mi Página de Inicio. Todos los derechos reservados.</p>
+</footer>
